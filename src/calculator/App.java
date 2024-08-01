@@ -49,8 +49,13 @@ public class App {
          if(Objects.equals(sc.next(), "remove")) {
              results.remove(0);
          }
-         System.out.println("저장 : " + results);
 
+         System.out.println("저장된 연산결과를 조회하시겠습니까? (inquiry 입력 시 조회)");
+         if(Objects.equals(sc.next(), "inquiry")) {
+             for (Integer answer : results) {
+                 System.out.println("연산 결과 : " + answer);
+             }
+         }
 
         System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
 
