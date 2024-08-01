@@ -1,14 +1,15 @@
 package calculator;
 
-import java.util.Arrays;
-import java.util.Scanner;
+import java.util.*;
+import java.util.List;
+
 
 public class App {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int[] results = new int[10];
-        int index=0;
+
+        List<Integer> results = new ArrayList<>();
      for(;;) {
         System.out.print("첫 번째 숫자를 입력하세요: ");
         int num1 = sc.nextInt();
@@ -42,16 +43,15 @@ public class App {
                 break;
         }
         System.out.println("결과: " + result);
+         results.add(result);
 
-        if(index==10) {
-            for (int i = 0; i < results.length - 1; i++) { // index는 0부터
-                results[i] = results[i + 1];
-            }
-            index = index - 1;
-        }
-        results[index] = result;
-        index = index + 1;
-         System.out.println("배열" + Arrays.toString(results));
+         System.out.println("가장 먼저 저장된 연산 결과를 삭제하시겠습니까? (remove 입력 시 삭제)");
+         if(Objects.equals(sc.next(), "remove")) {
+             results.remove(0);
+         }
+         System.out.println("저장 : " + results);
+
+
         System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
 
         if (sc.next().equals("exit")) {
