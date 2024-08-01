@@ -43,9 +43,15 @@ public class App {
         }
         System.out.println("결과: " + result);
 
+        if(index==10) {
+            for (int i = 0; i < results.length - 1; i++) { // index는 0부터
+                results[i] = results[i + 1];
+            }
+            index = index - 1;
+        }
         results[index] = result;
         index = index + 1;
-
+         System.out.println("배열" + Arrays.toString(results));
         System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
 
         if (sc.next().equals("exit")) {
